@@ -1,0 +1,38 @@
+{
+    "name": "brickie-toolshed/netbeans-phpunit-support",
+    "description": "This package provides another phpunit support to netbeans than the original one.",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Eric VILLARD",
+            "email": "dev@eviweb.fr",
+            "homepage": "https://github.com/eviweb",
+            "role": "developer"
+        }
+    ],
+    "require": {},
+    "require-dev": {
+        "phpunit/phpunit": "~5"
+    },
+    "autoload": {
+        "psr-4": {
+            "netbeans\\phpunit\\support\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "netbeans\\phpunit\\support\\": "tests/unit/"
+        }
+    },
+    "config": {
+        "bin-dir": "bin/"
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "0.1.x-dev"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}

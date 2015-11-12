@@ -1,0 +1,17 @@
+composer.phar
+.DS_Store
+##### begin composer #####
+/vendor/
+/composer.lock
+##### end composer #####
+##### begin phpdev #####
+/bin/phpunit
+/bin/phpspec
+/bin/behat
+/bin/robo
+##### end phpdev #####
+##### begin phpqa #####
+/bin/hoa
+/bin/pdepend
+/bin/php*
+##### end phpqa #####
