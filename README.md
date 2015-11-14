@@ -9,9 +9,9 @@ This package provides another phpunit support to netbeans than the original one.
 Installation
 ------------
 ### Locally
-Run `composer require brickie-toolshed/netbeans-phpunit-support:~0.1` within your project directory.    
+Run `composer require brickie-toolshed/netbeans-phpunit-support` within your project directory.    
 ### Globally
-Run `composer global require brickie-toolshed/netbeans-phpunit-support:~0.1` within your project directory.    
+Run `composer global require brickie-toolshed/netbeans-phpunit-support` within your project directory.    
 
 NetBeans configuration
 ----------------------
