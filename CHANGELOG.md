@@ -7,3 +7,4 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 #### Added
 - package files
 - file not found exception class
+- test suite provider
