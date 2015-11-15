@@ -17,7 +17,7 @@ NetBeans configuration
 ----------------------
 1. create a phpunit configuration file named `phpunit.xml` at the root of your project directory
 2. enable phpunit support in the _NetBeans Project Properties > Testing_ panel
-3. check the _Use Custom PHPUnit Script_ checkbox in the _NetBeans Project Properties > Testing > PHPUnit_ panel
+3. check the _Use Custom Test Suite_ checkbox in the _NetBeans Project Properties > Testing > PHPUnit_ panel
 4. click _Browse..._ and select the test suite provider file: `./src/TestSuiteProvider.php` of this package
 5. click _OK_
 
