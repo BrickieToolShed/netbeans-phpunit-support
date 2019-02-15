@@ -33,8 +33,8 @@
 namespace netbeans\phpunit\support;
 
 use netbeans\phpunit\support\exceptions\FileNotFoundException;
-use PHPUnit_Framework_TestSuite;
-use PHPUnit_Util_Configuration;
+use PHPUnit\Framework\TestSuite as PHPUnit_Framework_TestSuite;
+use PHPUnit\Util\Configuration as PHPUnit_Util_Configuration;
 
 /**
  * TestSuiteProvider

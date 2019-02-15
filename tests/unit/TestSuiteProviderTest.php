@@ -32,8 +32,9 @@
 
 namespace netbeans\phpunit\support;
 
-use PHPUnit_Framework_TestCase;
-use PHPUnit_Framework_TestSuite;
+use netbeans\phpunit\support\exceptions\FileNotFoundException;
+use PHPUnit\Framework\TestCase as PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestSuite as PHPUnit_Framework_TestSuite;
 
 /**
  * TestSuiteProviderTest
@@ -45,7 +46,7 @@ use PHPUnit_Framework_TestSuite;
  */
 class TestSuiteProviderTest extends PHPUnit_Framework_TestCase
 {
-    public function setUp()
+    protected function setUp(): void
     {
         parent::setUp();
 
@@ -77,13 +78,12 @@ class TestSuiteProviderTest extends PHPUnit_Framework_TestCase
         );
     }
 
-    /**
-     * @expectedException \netbeans\phpunit\support\exceptions\FileNotFoundException
-     */
     public function testSuiteThrowsExceptionIfConfigurationFileIsNotFound()
     {
+        $this->expectException(FileNotFoundException::class);
+
         TestSuiteProvider::setConfigurationFile('undefined.xml');
-        TestSuiteProvider::suite();
+        TestSuiteProvider::suite();        
     }
 
     /**

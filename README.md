@@ -6,6 +6,11 @@ This package provides another phpunit support to netbeans than the original one.
 [![Travis CI - Build Status](https://travis-ci.org/BrickieToolShed/netbeans-phpunit-support.svg)](https://travis-ci.org/BrickieToolShed/netbeans-phpunit-support)
 [![Github - Last tag](https://img.shields.io/github/tag/BrickieToolShed/netbeans-phpunit-support.svg)](https://github.com/BrickieToolShed/netbeans-phpunit-support/tags)
 
+Supported PHPUnit versions
+==========================
+* version 0.1.0 supports PHPUnit 4
+* version 0.2.0 supports PHPUnit >= 7
+
 Installation
 ------------
 ### Locally
