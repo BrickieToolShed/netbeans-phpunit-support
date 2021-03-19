@@ -11,9 +11,10 @@
             "role": "developer"
         }
     ],
-    "require": {},
+    "require": {
+        "phpunit/phpunit": ">=7 <9"
+    },
     "require-dev": {
-        "phpunit/phpunit": ">=7"
     },
     "autoload": {
         "psr-4": {
