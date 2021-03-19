@@ -5,6 +5,10 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ### [Unreleased][unreleased]
 
+#### Changed
+
+- use bin/phpunit command during travis tests
+
 ### 0.3.0 - 2021-03-20
 
 #### Changed
