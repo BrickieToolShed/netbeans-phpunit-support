@@ -11,16 +11,21 @@ This package provides another phpunit support to netbeans than the original one.
 
 - version 0.1.0 supports PHPUnit 4
 - version 0.2.1 supports PHPUnit >= 7 but < 9
+- version 0.3.0 supports PHPUnit >= 9
 
 ## Installation
 
 ### Locally
 
-Run `composer require brickie-toolshed/netbeans-phpunit-support` within your project directory.
+Run `composer require brickie-toolshed/netbeans-phpunit-support:[VERSION]` within your project directory.
+
+Where _[VERSION]_ is one of the versions above.
 
 ### Globally
 
-Run `composer global require brickie-toolshed/netbeans-phpunit-support` within your project directory.
+Run `composer global require brickie-toolshed/netbeans-phpunit-support:[VERSION]` within your project directory.
+
+Where _[VERSION]_ is one of the versions above.
 
 ## NetBeans configuration
 

@@ -5,6 +5,13 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ### [Unreleased][unreleased]
 
+### 0.3.0 - 2021-03-20
+
+#### Changed
+
+- support of PHPUnit >= 9
+- needs PHP >= 7.3
+
 ### 0.2.1 - 2021-03-19
 
 #### Fixed
