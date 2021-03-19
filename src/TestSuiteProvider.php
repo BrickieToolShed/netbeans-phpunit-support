@@ -1,5 +1,4 @@
 <?php
-
 /* vim: set expandtab tabstop=4 shiftwidth=4 softtabstop=4: */
 /**
  * The MIT License
@@ -33,8 +32,8 @@
 namespace netbeans\phpunit\support;
 
 use netbeans\phpunit\support\exceptions\FileNotFoundException;
-use PHPUnit\Framework\TestSuite as PHPUnit_Framework_TestSuite;
-use PHPUnit\Util\Configuration as PHPUnit_Util_Configuration;
+use PHPUnit\TextUI\TestSuiteMapper;
+use PHPUnit\TextUI\XmlConfiguration\Loader;
 
 /**
  * TestSuiteProvider
@@ -46,6 +45,7 @@ use PHPUnit\Util\Configuration as PHPUnit_Util_Configuration;
  */
 final class TestSuiteProvider
 {
+
     /**
      * phpunit configuration file
      *
@@ -56,7 +56,10 @@ final class TestSuiteProvider
     /**
      * constructor
      */
-    private function __construct() {}
+    private function __construct()
+    {
+
+    }
 
     /**
      * set the phpunit configuration file
@@ -71,17 +74,16 @@ final class TestSuiteProvider
     /**
      * get the phpunit test suite instance
      *
-     * @return PHPUnit_Framework_TestSuite returns the phpunit test suite instance
+     * @return PHPUnit\Framework\TestSuite returns the phpunit test suite instance
      * @throws FileNotFoundException       if the file is not found
      */
     public static function suite()
     {
         $file = static::checkConfigurationFile(
-            static::getConfigurationFile()
+                static::getConfigurationFile()
         );
 
-        return PHPUnit_Util_Configuration::getInstance($file)
-            ->getTestSuiteConfiguration();
+        return (new TestSuiteMapper)->map(((new Loader())->load($file)->testSuite()), '');
     }
 
     /**
@@ -91,9 +93,7 @@ final class TestSuiteProvider
      */
     private static function getConfigurationFile()
     {
-        static::$file = isset(static::$file)
-            ? static::$file
-            : getcwd().DIRECTORY_SEPARATOR.'phpunit.xml';
+        static::$file = isset(static::$file) ? static::$file : getcwd() . DIRECTORY_SEPARATOR . 'phpunit.xml';
 
         return static::$file;
     }
@@ -113,4 +113,5 @@ final class TestSuiteProvider
 
         return $file;
     }
+
 }

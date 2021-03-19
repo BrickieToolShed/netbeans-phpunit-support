@@ -1,5 +1,4 @@
 <?php
-
 /* vim: set expandtab tabstop=4 shiftwidth=4 softtabstop=4: */
 /**
  * The MIT License
@@ -33,8 +32,8 @@
 namespace netbeans\phpunit\support;
 
 use netbeans\phpunit\support\exceptions\FileNotFoundException;
-use PHPUnit\Framework\TestCase as PHPUnit_Framework_TestCase;
-use PHPUnit\Framework\TestSuite as PHPUnit_Framework_TestSuite;
+use PHPUnit\Framework\TestCase;
+use PHPUnit\Framework\TestSuite;
 
 /**
  * TestSuiteProviderTest
@@ -44,8 +43,9 @@ use PHPUnit\Framework\TestSuite as PHPUnit_Framework_TestSuite;
  * @copyright   (c) 2015 Eric VILLARD <dev@eviweb.fr>
  * @license     http://opensource.org/licenses/MIT MIT License
  */
-class TestSuiteProviderTest extends PHPUnit_Framework_TestCase
+class TestSuiteProviderTest extends TestCase
 {
+
     protected function setUp(): void
     {
         parent::setUp();
@@ -55,7 +55,7 @@ class TestSuiteProviderTest extends PHPUnit_Framework_TestCase
 
     public function testSuiteReturnsCorrectType()
     {
-        $this->assertInstanceOf(PHPUnit_Framework_TestSuite::class, TestSuiteProvider::suite());
+        $this->assertInstanceOf(TestSuite::class, TestSuiteProvider::suite());
     }
 
     public function testSuiteUsesConfigFileFromCurrentWorkingDir()
@@ -63,19 +63,23 @@ class TestSuiteProviderTest extends PHPUnit_Framework_TestCase
         $olddir = getcwd();
         chdir(__DIR__);
         $this->assertEquals(
-            $this->getExpectedTestSuiteName(),
-            TestSuiteProvider::suite()->getName()
+            $this->getExpectedTestSuiteName(), TestSuiteProvider::suite()->tests()[0]->getName()
         );
         chdir($olddir);
     }
 
     public function testSetConfigurationFile()
     {
-        TestSuiteProvider::setConfigurationFile(__DIR__.DIRECTORY_SEPARATOR.'phpunit.xml');
+        TestSuiteProvider::setConfigurationFile(__DIR__ . DIRECTORY_SEPARATOR . 'phpunit.xml');
         $this->assertEquals(
-            $this->getExpectedTestSuiteName(),
-            TestSuiteProvider::suite()->getName()
+            $this->getExpectedTestSuiteName(), TestSuiteProvider::suite()->tests()[0]->getName()
         );
+    }
+
+    public function testEmptySuite()
+    {
+        TestSuiteProvider::setConfigurationFile(__DIR__ . DIRECTORY_SEPARATOR . 'empty-suite-phpunit.xml');
+        $this->assertEmpty(TestSuiteProvider::suite()->tests());
     }
 
     public function testSuiteThrowsExceptionIfConfigurationFileIsNotFound()
@@ -83,7 +87,7 @@ class TestSuiteProviderTest extends PHPUnit_Framework_TestCase
         $this->expectException(FileNotFoundException::class);
 
         TestSuiteProvider::setConfigurationFile('undefined.xml');
-        TestSuiteProvider::suite();        
+        TestSuiteProvider::suite();
     }
 
     /**
@@ -95,4 +99,5 @@ class TestSuiteProviderTest extends PHPUnit_Framework_TestCase
     {
         return 'DummyTestSuite';
     }
+
 }
